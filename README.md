@@ -21,7 +21,8 @@ To install the `sfm-bookmark` extension, you will need to have the [sfm](https:/
   config = function()
     require("sfm").setup {}
     require("sfm").load_extention "sfm-bookmark" -- load extension after initializing the sfm plugin
-  end,
+  end
+}
 ```
 
 ## Configuration
