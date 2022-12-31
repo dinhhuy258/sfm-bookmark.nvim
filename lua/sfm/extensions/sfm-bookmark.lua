@@ -2,7 +2,6 @@ local event = require "sfm.event"
 local sfm_actions = require "sfm.actions"
 
 local M = {
-  sfm_explorer = nil,
   marks = {},
 }
 
@@ -16,7 +15,7 @@ function M.set_mark()
     return
   end
 
-  M.marks[mark_key] = M.sfm_explorer:get_current_entry()
+  M.marks[mark_key] = sfm_actions.get_current_entry()
 end
 
 function M.load_mark()
@@ -30,9 +29,7 @@ function M.load_mark()
 end
 
 function M.setup(sfm_explorer)
-  M.sfm_explorer = sfm_explorer
-
-  M.sfm_explorer:subscribe(event.ExplorerOpen, function(payload)
+  sfm_explorer:subscribe(event.ExplorerOpen, function(payload)
     local bufnr = payload["bufnr"]
     local options = {
       noremap = true,
