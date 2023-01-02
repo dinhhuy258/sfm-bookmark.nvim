@@ -19,16 +19,32 @@ To install the `sfm-bookmark` extension, you will need to have the [sfm](https:/
     { "dinhhuy258/sfm-bookmark.nvim" },
   },
   config = function()
-    require("sfm").setup {}
-    require("sfm").load_extention "sfm-bookmark" -- load extension after initializing the sfm plugin
+    local sfm_explorer = require("sfm").setup {}
+    sfm_explorer:load_extention "sfm-bookmark"
   end
 }
 ```
 
 ## Configuration
 
-The `sfm-bookmark` extension does **not** provide any additional configuration options beyond those provided by the `sfm` plugin.
+The `sfm-bookmark` plugin provides the following configuration options:
 
-## Usage
+```lua
+local default_config = {
+  mappings = {
+    bookmark_mark = { "m" },
+    bookmark_load = { "`" },
+  },
+}
+```
 
-Use `m` + `key` to mark the current entry, and \` + `key` to navigate to the marked entry.
+You can override the default configuration in `load_extention` method
+
+```lua
+sfm_explorer:load_extention("sfm-bookmark", {
+  mappings = {
+    bookmark_mark = { "m" },
+    bookmark_load = { "`" },
+  },
+})
+```
