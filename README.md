@@ -20,7 +20,7 @@ To install the `sfm-bookmark` extension, you will need to have the [sfm](https:/
   },
   config = function()
     local sfm_explorer = require("sfm").setup {}
-    sfm_explorer:load_extention "sfm-bookmark"
+    sfm_explorer:load_extension "sfm-bookmark"
   end
 }
 ```
@@ -38,10 +38,10 @@ local default_config = {
 }
 ```
 
-You can override the default configuration in `load_extention` method
+You can override the default configuration in `load_extension` method
 
 ```lua
-sfm_explorer:load_extention("sfm-bookmark", {
+sfm_explorer:load_extension("sfm-bookmark", {
   mappings = {
     bookmark_mark = { "m" },
     bookmark_load = { "`" },
