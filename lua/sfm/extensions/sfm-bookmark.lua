@@ -1,6 +1,6 @@
 local config = require "sfm.extensions.sfm-bookmark.config"
 local event = require "sfm.event"
-local sfm_actions = require "sfm.actions"
+local api = require "sfm.api"
 
 local M = {
   marks = {},
@@ -16,7 +16,7 @@ function M.set_mark()
     return
   end
 
-  M.marks[mark_key] = sfm_actions.get_current_entry()
+  M.marks[mark_key] = api.entry.current()
 end
 
 function M.load_mark()
@@ -26,7 +26,7 @@ function M.load_mark()
   end
 
   local entry = M.marks[mark_key]
-  sfm_actions.focus_file(entry.path)
+  api.navigation.focus(entry.path)
 end
 
 function M.setup(sfm_explorer, opts)
